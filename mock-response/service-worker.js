@@ -30,6 +30,6 @@ self.addEventListener( 'fetch', function ( event )
 
 		console.log( 'Responding with a mock response body:', response.body );
 
-		event.respondWith( mockResponse );
+		event.respondWith( mockResp
 	}
-} )
+} );
