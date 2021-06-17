@@ -16,8 +16,11 @@ function installHandler( event )
 	);
 }
 
-respondWith( fetch( request ).catch( function ()
+function fetchHandler( event )
 {
-	return caches.match( request );
-} )
-);
+	event.respondWith( fetch( event.request ).catch( function ()
+	{
+		return caches.match( event.request );
+	} )
+	);
+}
