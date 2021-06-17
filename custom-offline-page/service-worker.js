@@ -8,7 +8,7 @@ var offlineUrl = 'offline.html';
 
 self.addEventListener( 'install', function ( event )
 {
-	event.waitUntil( chaches.open( currentCache.offline ).then( function ( cache )
+	event.waitUntil( caches.open( currentCache.offline ).then( function ( cache )
 	{
 		return cache.addAll( [offlineUrl] );
 	} )
