@@ -22,7 +22,7 @@ function fetchHandler( event )
 	{
 		/*return caches.match( event.request );*/
 		const cache = event.waitUntil( caches.open( cacheName ) );
-		const cachedResponse = event.waitUntil( cache.match( cacheName ));
+		const cachedResponse = event.waitUntil( cache.match( event.request ) );
 		return cachedResponse;
 	} )
 	);
