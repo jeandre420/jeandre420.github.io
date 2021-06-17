@@ -67,7 +67,7 @@
 			navigator.serviceWorker.register( 'service-worker.js', {scope: './'} )
 				.then( function ( registration )
 				{
-					// Chec if service worker is handling the network operations.
+					// Check if service worker is handling the network operations.
 					if ( navigator.serviceWorker.controller )
 					{
 						printStatus( 'The service worker is currently handeling network operations.' );

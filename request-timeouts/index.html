@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Request Timeouts</title>
+</head>
+<body>
+	<p>Registration status: <strong id="status"></strong></p>
+
+	<script>
+		if ( 'serviceWorker' in navigator )
+		{
+			navigator.serviceWorker.register( 'service-worker', {scope: './'} )
+				.then( function ( serviceWorker )
+				{
+					document.getElementById( 'status' ).innerHTML = 'successful';
+				} );
+		}
+		else
+		{
+			document.getElementById( 'status' ).innerHTML = 'unavailable';
+		}
+	</script>
+</body>
+</html>
