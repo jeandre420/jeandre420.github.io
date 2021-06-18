@@ -10,7 +10,31 @@
 		<p>Registration status: <strong id="status"></strong></p>
 
 		<img src="packt-logo.png" alt="logo" />
-    </main>
+
+		<!-- srcset: When you want to display seperate images(or usually, a seperate asset of the same image) based on device-pixel
+			 ratio -->
+		<!-- <img src="image-source.png" srcset="image-src.png 1x, image-2x.png 2x" /> -->
+
+			<!-- For a device-pixel ratio of 1, the image-src.png image will be used.
+			 For a device-pixel ratio of 2, the image-2x.png image will be used. -->
+		
+		<!-- sizes: When you want to use a different sized image on different screen sizes. -->
+		<!-- <img src="image-source.png" sizes="50vw" srcset="image-src.png 1x, image-2x.png 2x 400w" /> -->
+
+		<!-- picture: When you want to show different image depending on the rendered size of the image. Is a container,
+			 which contains other elements that control the image to be downloaded. -->
+		<!-- 
+			<picture>
+				<img src="image-source.png" sizes="50vw" srcset="image-src.png 1x, image-2x.png 2x" /> 
+			</picture>
+		-->
+
+			<!-- If you want to cache an image during the install step for the service worker, you have a few options:
+
+					Installing a single low-resolution version of the image
+
+					Installing a single high-resolution version of the image -->
+	</main>
 
 	<script src="index.js"></script>
 </body>

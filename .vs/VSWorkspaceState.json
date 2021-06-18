@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\mock-response",
     "\\stale-error"
   ],
-  "SelectedNode": "\\mock-response\\service-worker.js",
+  "SelectedNode": "\\stale-error\\service-worker.js",
   "PreviewInSolutionExplorer": false
 }

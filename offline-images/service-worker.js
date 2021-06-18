@@ -18,9 +18,11 @@ function installHandler( event )
 
 function fetchHandler( event )
 {
-	event.respondWith( fetch( event.request ).catch( function ()
+	event.respondWith( (async () => 
 	{
-		return caches.match( event.request );
+		const r = await caches.match( event.request );
+
+		if ( r ) {return r;}
 		//const cache = event.waitUntil( caches.open( cacheName ) );
 		//const cachedResponse = cache.match( cacheName );
 		//return cachedResponse;
