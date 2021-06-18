@@ -1,5 +1,5 @@
 // JavaScript source code
-var version = 1;
+var version = 2;
 var cacheName = 'static-' + version;
 
 self.addEventListener( 'install', installHandler );
@@ -17,6 +17,6 @@ function fetchHandler( event )
 {
 	if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
 	{
-		event.respondWith( caches.match( event.request ) );
+		event.respondWith( caches.match( event.request, all ) );
 	}
 }
