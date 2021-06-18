@@ -11,8 +11,7 @@ function installHandler( event )
 {
 	event.waitUntil( caches.open( cacheName ).then( function ( cache )
 	{
-		cached = cache.addAll( ['index.html', 'style-2.css'] );
-		return cached;
+		return cache.addAll( ['index.html', 'style-2.css'] );
 	} ) );
 }
 
@@ -20,7 +19,7 @@ function fetchHandler( event )
 {
 	if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
 	{
-		event.respondWith( caches.match( cached ));
+		event.respondWith( caches.match( event.request ) );
 	}
 
 
