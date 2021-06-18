@@ -17,7 +17,7 @@ function fetchHandler( event )
 {
 	event.respondWith( caches.match( event.request ).then( function ( cached )
 	{
-		var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve ).catch( unableToResolve );
+		var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
 
 		return cached || networked;
 
@@ -35,7 +35,7 @@ function fetchHandler( event )
 
 		function unableToResolve()
 		{
-			return caches.match( ['index.html', 'style-2.css'] );
+			return caches.match( event.request );
 			//return new Response( '<h1>Service Unavailable</h1>', {
 			//	status: 503,
 			//	statusText: 'Service Unavailable',
