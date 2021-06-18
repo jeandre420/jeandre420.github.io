@@ -18,7 +18,7 @@ function installHandler( event )
 
 function fetchHandler( event )
 {
-	event.respondWith( caches.match( cached ));
+	return event.respondWith( await( caches.match( cached )));
 	//	.then( function ( cached )
 	//{
 	//	var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
