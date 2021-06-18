@@ -15,34 +15,35 @@ function installHandler( event )
 
 function fetchHandler( event )
 {
-	event.respondWith( caches.match( event.request ).then( function ( cached )
-	{
-		var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
+	event.respondWith( caches.match( event.request )
+	//	.then( function ( cached )
+	//{
+	//	var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
 
-		return cached || networked;
+	//	return cached || networked;
 
-		function fetchedFromNetwork( response )
-		{
-			var cacheCopy = response.clone();
+	//	function fetchedFromNetwork( response )
+	//	{
+	//		var cacheCopy = response.clone();
 
-			caches.open( cacheName ).then( function add( cache )
-			{
-				cache.put( event.request, cacheCopy );
-			} );
+	//		caches.open( cacheName ).then( function add( cache )
+	//		{
+	//			cache.put( event.request, cacheCopy );
+	//		} );
 
-			return response;
-		}
+	//		return response;
+	//	}
 
-		function unableToResolve()
-		{
-			return caches.match( event.request );
-			//return new Response( '<h1>Service Unavailable</h1>', {
-			//	status: 503,
-			//	statusText: 'Service Unavailable',
-			//	headers: new Headers( {'Content-Type': 'text/html'} )
-			//});
-		}
-	} ));
+	//	function unableToResolve()
+	//	{
+	//		return caches.match( event.request );
+	//		//return new Response( '<h1>Service Unavailable</h1>', {
+	//		//	status: 503,
+	//		//	statusText: 'Service Unavailable',
+	//		//	headers: new Headers( {'Content-Type': 'text/html'} )
+	//		//});
+	//	}
+	//} ));
 	//if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
 	//{
 	//}
