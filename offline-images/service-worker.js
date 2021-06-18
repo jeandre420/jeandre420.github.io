@@ -19,7 +19,7 @@ self.addEventListener( 'fetch', function ( event )
 	event.respondWith( fetch( event.request ).catch( function (error)
 	{
 		console.log( 'OFFLINE: Showing offline page', error );
-		return caches.match( cacheName );
+		return caches.match( event.request.cache );
 	} )
 	);
 } );
