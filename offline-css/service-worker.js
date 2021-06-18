@@ -18,10 +18,30 @@ function installHandler( event )
 
 function fetchHandler( event )
 {
-	if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
+	//if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
+	//{
+	//	return event.respondWith( caches.match( cached ));
+	//}
+
+	var request = event.request,
+		isRequestMethodGET = request.method === 'GET';
+
+	if ( request.mode === 'navigate' || isRequestMethodGET )
 	{
-		return event.respondWith( caches.match( cached ));
+		event.respondWith( fetch( request ).catch( function ( error )
+		{
+			console.log( 'OFFLINE: Returning offline page.', error );
+			return caches.match( request );
+		} ) );
 	}
+	else
+	{
+		event.respondWith( caches.match( request ).then( function ( response )
+		{
+			return response || fetch( request );
+		} ) );
+	}
+
 	//	.then( function ( cached )
 	//{
 	//	var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
