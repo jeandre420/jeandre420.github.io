@@ -1,6 +1,8 @@
-// JavaScript source code
+// JavaScript source code.
+
 var version = 2;
 var cacheName = 'static-' + version;
+var cached;
 
 self.addEventListener( 'install', installHandler );
 self.addEventListener( 'fetch', fetchHandler );
@@ -9,13 +11,14 @@ function installHandler( event )
 {
 	event.waitUntil( caches.open( cacheName ).then( function ( cache )
 	{
-		return cache.addAll( ['index.html'] );
+		cached = cache.addAll( ['index.html', 'style-2.css'] );
+		return cached;
 	} ) );
 }
 
 function fetchHandler( event )
 {
-	event.respondWith( caches.match( event.request )
+	event.respondWith( caches.match( cached ));
 	//	.then( function ( cached )
 	//{
 	//	var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
