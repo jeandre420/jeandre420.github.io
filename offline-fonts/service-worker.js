@@ -16,5 +16,5 @@ function installHandler( event )
 
 function fetchHandler( event )
 {
-	event.respondWith( caches.match( event.request ) );
+	return event.respondWith( caches.match( event.request ) );
 }
