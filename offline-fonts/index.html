@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Offline Fonts</title>
+	<style>
+        @font-face {
+            font-family: 'MyWebFont';
+            src: url('webfont-serif.woff') format('woff');
+        }
+
+        p {
+            font-family: 'MyWebFont', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+	<p>Registration status: <strong id="status"></strong></p>
+
+	<script>
+        var scope = {scope: './'};
+
+        if ( 'serviceWorker' in navigator )
+        {
+            navigator.serviceWorker.register( 'service-worker.js', scope )
+                .then( function ( serviceWorker )
+                {
+                    printStatus( 'successful' );
+                } ).catch( function ( error )
+                {
+                    printStatus( error );
+                } );
+        }
+        else
+        {
+            printStatus( 'unavailable' );
+        }
+
+        function printStatus( status )
+        {
+            document.getElementById( 'status' ).innerHTML = status;
+        }
+    </script>
+</body>
+</html>
