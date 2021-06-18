@@ -18,7 +18,10 @@ function installHandler( event )
 
 async function fetchHandler( event )
 {
-	return event.respondWith( await( caches.match( cached )));
+	if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
+	{
+		return event.respondWith( await( caches.match( cached )));
+	}
 	//	.then( function ( cached )
 	//{
 	//	var networked = fetch( event.request ).then( fetchedFromNetwork, unableToResolve );
@@ -47,7 +50,4 @@ async function fetchHandler( event )
 	//		//});
 	//	}
 	//} ));
-	//if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
-	//{
-	//}
 }
