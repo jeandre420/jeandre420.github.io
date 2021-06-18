@@ -23,6 +23,12 @@ function fetchHandler( event )
 		const r = await caches.match( event.request );
 
 		if ( r ) {return r;}
+
+		const response = await fetch( event.request );
+		const cache = await caches.open( cacheName );
+
+		cache.put( event.request, response.clone() );
+		return response;
 		//const cache = event.waitUntil( caches.open( cacheName ) );
 		//const cachedResponse = cache.match( cacheName );
 		//return cachedResponse;
