@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Offline CSS</title>
+	<link rel="stylesheet" href="style-2.css" />
+	<link rel="stylesheet" href="style-1.css" />
+</head>
+<body>
+	<p>Registration status: <strong id="status"></strong></p>
+
+	<script>
+		var scope = {scope: './'};
+
+		if ( 'serviceWorker' in navigator )
+		{
+			navigator.serviceWorker.register( 'service-worker.js', scope ).then( function ( serviceWorker )
+			{
+				printStatus( 'successful' );
+			} ).catch( function ( error )
+			{
+				printStatus( error );
+			} );
+		}
+		else
+		{
+			printStatus( 'unavailable' );
+		}
+
+		function printStatus( status )
+		{
+			document.getElementById( 'status' ).innerHTML = status;
+		}
+	</script>
+</body>
+</html>
