@@ -35,7 +35,7 @@ function fetchHandler( event )
 
 		function unableToResolve()
 		{
-			return caches.open( ['index.html', 'style-1.css'] );
+			return caches.match( ['index.html', 'style-2.css'] );
 			//return new Response( '<h1>Service Unavailable</h1>', {
 			//	status: 503,
 			//	statusText: 'Service Unavailable',
