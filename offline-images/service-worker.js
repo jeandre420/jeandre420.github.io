@@ -16,8 +16,9 @@ self.addEventListener( 'install', function ( event )
 
 self.addEventListener( 'fetch', function ( event )
 {
-	event.respondWith( fetch( event.request ).catch( function ()
+	event.respondWith( fetch( event.request ).catch( function (error)
 	{
+		console.log( 'OFFLINE: Showing offline page', error );
 		return caches.match( event.request );
 	} )
 	);
