@@ -35,11 +35,12 @@ function fetchHandler( event )
 
 		function unableToResolve()
 		{
-			return new Response( '<h1>Service Unavailable</h1>', {
-				status: 503,
-				statusText: 'Service Unavailable',
-				headers: new Headers( {'Content-Type': 'text/html'} )
-			});
+			return event.respondWith( caches.match( event.request ))
+			//return new Response( '<h1>Service Unavailable</h1>', {
+			//	status: 503,
+			//	statusText: 'Service Unavailable',
+			//	headers: new Headers( {'Content-Type': 'text/html'} )
+			//});
 		}
 	} ));
 	//if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
