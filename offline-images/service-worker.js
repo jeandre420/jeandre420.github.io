@@ -26,6 +26,6 @@ function fetchHandler( event )
 		//const cache = event.waitUntil( caches.open( cacheName ) );
 		//const cachedResponse = cache.match( cacheName );
 		//return cachedResponse;
-	} )
+	} )()
 	);
 }
