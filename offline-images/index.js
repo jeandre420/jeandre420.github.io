@@ -1,11 +1,9 @@
 // JavaScript source code
 'use-strict';
 
-var scope = {scope: './'};
-
 if ( 'serviceWorker' in navigator )
 {
-	navigator.serviceWorker.register( 'service-worker.js', scope ).then( function ( serviceWorker )
+	navigator.serviceWorker.register( 'service-worker.js' ).then( function ( serviceWorker )
 	{
 		printStatus( 'successful' );
 	} ).catch( function ( error )
