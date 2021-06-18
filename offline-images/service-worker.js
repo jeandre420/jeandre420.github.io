@@ -4,34 +4,45 @@
 var version = 1;
 var cacheName = 'static-' + version;
 
-self.addEventListener( 'install', installHandler );
-self.addEventListener( 'fetch', fetchHandler );
-
-function installHandler( event )
+self.addEventListener( 'install', function ( event )
 {
 	event.waitUntil( caches.open( cacheName ).then( function ( cache )
 	{
 		return cache.addAll( ['index.html', 'packt-logo.png'] );
 	} )
 	);
-}
+} );
 
-function fetchHandler( event )
+
+self.addEventListener( 'fetch', function ( event )
 {
-	event.respondWith( (async () => 
+	event.respondWith( fetch( event.request ).catch( function ()
 	{
-		const r = await caches.match( event.request );
-
-		if ( r ) {return r;}
-
-		const response = await fetch( event.request );
-		const cache = await caches.open( cacheName );
-
-		cache.put( event.request, response.clone() );
-		return response;
+		return caches.match( event.request );
 		//const cache = event.waitUntil( caches.open( cacheName ) );
 		//const cachedResponse = cache.match( cacheName );
 		//return cachedResponse;
-	} )()
+	} )
 	);
-}
+} );
+
+//function installHandler( event )
+//{
+//	event.waitUntil( caches.open( cacheName ).then( function ( cache )
+//	{
+//		return cache.addAll( ['index.html', 'packt-logo.png'] );
+//	} )
+//	);
+//}
+
+//function fetchHandler( event )
+//{
+//	event.respondWith( fetch( event.request ).catch( function ()
+//	{
+//		return caches.match( event.request );
+//		//const cache = event.waitUntil( caches.open( cacheName ) );
+//		//const cachedResponse = cache.match( cacheName );
+//		//return cachedResponse;
+//	} )
+//	);
+//}
