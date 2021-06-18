@@ -19,9 +19,6 @@ self.addEventListener( 'fetch', function ( event )
 	event.respondWith( fetch( event.request ).catch( function ()
 	{
 		return caches.match( event.request );
-		//const cache = event.waitUntil( caches.open( cacheName ) );
-		//const cachedResponse = cache.match( cacheName );
-		//return cachedResponse;
 	} )
 	);
 } );
