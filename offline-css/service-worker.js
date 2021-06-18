@@ -16,7 +16,7 @@ function installHandler( event )
 	} ) );
 }
 
-function fetchHandler( event )
+async function fetchHandler( event )
 {
 	return event.respondWith( await( caches.match( cached )));
 	//	.then( function ( cached )
