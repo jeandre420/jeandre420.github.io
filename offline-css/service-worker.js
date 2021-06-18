@@ -16,11 +16,11 @@ function installHandler( event )
 	} ) );
 }
 
-async function fetchHandler( event )
+function fetchHandler( event )
 {
 	if ( /index/.test( event.request.url ) || /style-2/.test( event.request.url ) )
 	{
-		return event.respondWith( await( caches.match( cached )));
+		return event.respondWith( caches.match( cached ));
 	}
 	//	.then( function ( cached )
 	//{
