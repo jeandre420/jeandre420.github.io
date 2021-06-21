@@ -10,9 +10,9 @@ self.addEventListener( 'install', function ( event )
 		{
 			return cache.addAll( [
 				'./index.html',
-				//'./style.css',
-				//'./index.js',
-				//'./game.js',
+				'./style.css',
+				'./index.js',
+				'./game.js',
 				'./apple-logo.png',
 				'./google-logo.png',
 				'./adobe-logo.png',

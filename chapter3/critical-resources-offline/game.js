@@ -31,7 +31,7 @@ document.getElementById( 'tryButton' ).addEventListener( 'click', function ()
 	result.className = '';
 	attempts++;
 
-	if ( newIndex === choice )
+	if ( newIndex == choice )
 	{
 		result.innerText = "Yay! Well done! You did it in " + attempts + " attempt(s)";
 		result.classList.add( 'success' );
@@ -48,5 +48,5 @@ document.getElementById( 'tryButton' ).addEventListener( 'click', function ()
 
 function getRandomIndex()
 {
-	return Math.floor( Math.random() );
+	return Math.floor( Math.random() * 5 );
 }
