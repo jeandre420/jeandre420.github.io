@@ -9,11 +9,11 @@ self.addEventListener( 'install', function ( event )
 		.then( function ( cache )
 		{
 			return cache.addAll( [
-				'apple-logo.png',
-				'google-logo.png',
-				'adobe-logo.png',
-				'facebook-logo.png',
-				'amazon-logo.png'
+				'./apple-logo.png',
+				'./google-logo.png',
+				'./adobe-logo.png',
+				'./facebook-logo.png',
+				'./amazon-logo.png'
 			] );
 		} )
 		.then( function ()
