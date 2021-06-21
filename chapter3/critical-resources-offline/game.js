@@ -48,5 +48,5 @@ document.getElementById( 'tryButton' ).addEventListener( 'click', function ()
 
 function getRandomIndex()
 {
-	return Math.floor( Math.random() * 5 );
+	return Math.floor( Math.random() );
 }
