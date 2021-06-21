@@ -42,7 +42,7 @@ self.addEventListener( 'fetch', function ( event )
 				console.log( 'Fetching from server: ', event.request.url );
 			}
 
-			return fetch( event.request );
+			return fetch( caches.match(event.request) );
 		} )
 	);
 } );
