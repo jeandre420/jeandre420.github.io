@@ -2,9 +2,10 @@
 'use strict';
 
 var attempts = 0,
-	images = ['adobe',
+	images = [
 		'apple',
 		'google',
+		'adobe',
 		'facebook',
 		'amazon'
 	];
