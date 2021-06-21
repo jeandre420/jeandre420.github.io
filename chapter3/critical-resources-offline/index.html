@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Caching Critical Resources</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<section id="registration-status">
+		<p>Registration status: <strong id="status"></strong></p>
+
+		<input type="button" id="resetButton" value="Reset" />
+	</section>
+
+	<main>
+		<section>
+			<h1>Brand Game</h1>
+
+			<p>Attempts: <span id="attempts">0</span></p>
+
+			<select id="choice">
+				<option value="0">Apple</option>
+				<option value="1">Google</option>
+				<option value="2">Adobe</option>
+				<option value="3">Facebook</option>
+				<option value="4">Amazon</option>
+			</select>
+
+			<input type="button" id="tryButton" value="Try" />
+		</section>
+
+		<section>
+			<div src="" id="logo" data-image="0">
+				<p id="result"></p>
+			</div>
+		</section>
+
+		<div id="notification" class="hidden">
+			<p>Ready to go offline!</p>
+		</div>
+	</main>
+
+	<!-- Script files -->
+	<script src="index.js"></script>
+	<script src="game.js"></script>
+</body>
+</html>
